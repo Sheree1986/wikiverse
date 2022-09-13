@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Page = (props) => {
+export const Page = ({page, displayAuthorData}) => {
 
   return <>
-    <h3>{props.page.title}</h3>
+    <h3 onClick={() =>  displayAuthorData(page)}>{page.title}</h3>
   </>
 } 
 	
