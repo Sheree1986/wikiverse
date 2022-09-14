@@ -13,7 +13,7 @@ export const App = () => {
 	const [isClicked, setIsClicked] = useState(false);
 
 	// Set the article data on state (a new piece of state)
-	const [articleData, setArticleData] = useState();
+	const [articleData, setArticleData] = useState(null);
 
 	//set a boolean to true on state 
 	const [isAddingArticle, setIsAddingArticle] = useState(false)
@@ -21,6 +21,7 @@ export const App = () => {
 	
 
 	async function fetchPages(){
+		
 		try {
 			const response = await fetch(`${apiURL}/wiki`);
 			const pagesData = await response.json();
