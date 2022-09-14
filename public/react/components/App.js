@@ -36,16 +36,27 @@ export const App = () => {
 		fetchPages();
 	}, []);
 
-const displayAuthorData = async (page) => {
-		const response = await fetch(`${apiURL}/wiki/${page.slug}`);
-		const data = await response.json();
-		setArticleData(data);
-	}
+
 	return (
 		<main>	
-      		<h1>WikiVerse</h1>
+      	
+			{isClicked ? (
+			<Article articleData={articleData}  setIsClicked={setIsClicked} />
+			) : 
+			isAddingArticle ? (
+				<Form  setIsAddingArticle={setIsAddingArticle} />
+			) : (
+				<div>
+			<h1>WikiVerse</h1>
 			<h2>An interesting 📚</h2>
-			{!isClicked ? (
+				<PagesList pages={pages} setArticleData={setArticleData} setIsClicked={setIsClicked} />
+				<button onClick={() => setIsAddingArticle(true)}>Create Page</button>
+			
+				</div>
+			)}
+
+
+			{/* {!isClicked ? (
 				<PagesList pages={pages} setArticleData={setArticleData} setIsClicked={setIsClicked} />
 			) :( 
 				<Article articleData={articleData}  setIsClicked={setIsClicked} />
@@ -55,19 +66,9 @@ const displayAuthorData = async (page) => {
 			) : (
 
 					<Form  setIsAddingArticle={setIsAddingArticle} />
-			)}
-{/* 
-			 {!articleData ? (
-			<PagesList pages={pages}  displayAuthorData={displayAuthorData} setIsClicked={setIsClicked} />
-			) : (
-			<Article articleData={articleData}  setArticleData={setArticleData} pages={pages} setPages={setPages}  isClicked={isClicked} setIsClicked={setIsClicked} />
-			)} {!isAddingArticle ? (
-				<button onClick={() => setIsAddingArticle(true)}>Create Page</button>
-			) : (
-				<div>
-					<Form isAddingArticle={isAddingArticle} setIsAddingArticle={setIsAddingArticle} />
-				</div>
-			)}  */}
+			)} */}
+
+			
 
 		
 
