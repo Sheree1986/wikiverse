@@ -2,7 +2,7 @@ import React, {useState}from "react";
 import apiURL from "../api";
 
 // set field states 
-export const Form = ({setIsAddingArticle }) => {
+export const Form = ({setIsAddingArticle, fetchPages }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [title, setTitle] = useState("");
@@ -29,6 +29,8 @@ export const Form = ({setIsAddingArticle }) => {
             })
           });
           const data = await response.json();
+          fetchPages();
+        
 
           //no error handling needed for it to work
         //   if (data.code === 200) {

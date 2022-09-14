@@ -45,7 +45,7 @@ export const App = () => {
 			<Article articleData={articleData}  setIsClicked={setIsClicked} />
 			) : 
 			isAddingArticle ? (
-				<Form  setIsAddingArticle={setIsAddingArticle} />
+				<Form  setIsAddingArticle={setIsAddingArticle} fetchPages={fetchPages} />
 			) : (
 				<div>
 			<h1>WikiVerse</h1>
