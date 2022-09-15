@@ -6,7 +6,7 @@ import apiURL from '../api';
 
 
 // Set the article data on state (a new piece of state)
-export const Article = ({ articleData, setIsClicked, fetchPages  }) => {
+export const Article = ({ articleData, setIsClicked  }) => {
 
 
 //     useEffect(() => {
